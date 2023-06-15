@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int     @id @default(autoincrement())
+  name       String
+  college    String
+  zilla      String
+  phone      String  @unique
+  password   String
+  isVerified Boolean
+  role       String
+}
+
+model Exam {
+  id            Int        @id @default(autoincrement())
+  name          String
+  topic         String
+  duration      Int
+  marks         Int
+  startTime     DateTime
+  endTime       DateTime
+  ans_published Boolean
+  questions     Question[]
+  createdAt     DateTime   @default(now())
+}
+
+model Question {
+  id            Int    @id @default(autoincrement())
+  question_text String
+  opt1          String
+  opt2          String
+  opt3          String
+  opt4          String
+  ans           String
+  exam          Exam   @relation(fields: [examId], references: [id])
+  examId        Int
+}

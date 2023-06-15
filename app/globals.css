@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+@layer base {
+  @font-face {
+      font-family: 'ban';
+      src: url('/fonts/bangla_normal.woff2') format(woff2);
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+  }
+  @font-face {
+      font-family: 'ban-bold';
+      src: url('/fonts/bangla_bold.woff2') format(woff2);
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+  }
+  @font-face {
+      font-family: 'liShamim';
+      src: url('/fonts/LiShamim.woff2') format(woff2);
+      font-display: swap;
+      font-style: normal;
+  }
+}
+
+
+.ban{
+  font-family: ban ;
+}
+
+.ban-bold{
+  font-family: ban-bold ;
+}
+
+.liShamim{
+  font-family: liShamim;
+}
